@@ -16,6 +16,12 @@ class ChatRoomConsumer(AsyncJsonWebsocketConsumer):
 
         await self.accept()
 
+        await self.channel_layer.send('event', {
+            'type': 'message',
+            'channel': self.room_group_name,
+            'text': 'Websockets!'
+        })
+
         await self.channel_layer.group_send(
             self.room_group_name,
             {
