@@ -4,12 +4,6 @@ import json
 
 class ChatRoomConsumer(WebsocketConsumer):
 
-<<<<<<< HEAD
-    async def connect(self):
-        print('Chegou')
-        self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = f'chat_{self.room_name}'
-=======
     def connect(self):
         self.accept()
         # self.room_name = self.scope['url_route']['kwargs']['room_name']
@@ -19,7 +13,6 @@ class ChatRoomConsumer(WebsocketConsumer):
         #     self.room_group_name,
         #     self.channel_name
         # )
->>>>>>> e60a6ad9019e5e262a252f9afabacbb87e6f2866
 
         
         # self.channel_layer.send('event', {
