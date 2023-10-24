@@ -11,6 +11,7 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,7 +86,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ASGI_APPLICATION = 'async_chat.routing.application'
+ASGI_APPLICATION = 'async_chat.asgi.application'
 
 CHANNEL_LAYERS = {
     'default': {
