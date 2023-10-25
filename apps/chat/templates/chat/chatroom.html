@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
-    <title>Chat Room</title>
+  <meta charset="utf-8"/>
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
 </head>
 <body>
-  <textarea id="chat-log" disabled cols="100" rows="20"></textarea><br>
-  <input id="chat-message-input" type="text" size="100"><br>
-  <input id="chat-message-submit" type="button" value="Send">
+  <div class="columns is-centered m-5">
+    <div class="column is-two-thirds">
+      <span class="title is-block">Room: {{ room_name }}</span>
+      <textarea class="textarea" id="chat-log" disabled cols="100" rows="13"></textarea><br>
+      <input class="input" id="chat-message-input" type="text" size="100">
+      <div class="is-flex is-justify-content-center mt-3">
+        <input class="button is-link px-6" id="chat-message-submit" type="button" value="Send">
+      </div>
+    </div>
+  </div>
   {{ room_name|json_script:"room-name" }}
   <script>
     const roomName = JSON.parse(document.getElementById('room-name').textContent);

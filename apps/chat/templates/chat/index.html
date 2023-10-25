@@ -3,11 +3,18 @@
 <head>
     <meta charset="utf-8"/>
     <title>Chat Rooms</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
 </head>
 <body>
-    What chat room would you like to enter?<br>
-    <input id="room-name-input" type="text" size="100"><br>
-    <input id="room-name-submit" type="button" value="Enter">
+    <div class="columns is-centered m-5">
+        <div class="column is-two-thirds has-text-centered">
+            <span class="title is-block">What chat room would you like to enter?</span>
+            <input class="input" id="room-name-input" type="text" size="100"><br>
+            <div class="is-flex is-justify-content-center mt-3">
+                <input class="button is-link px-6" id="room-name-submit" type="button" value="Enter">
+            </div>
+        </div>
+    </div>
 
     <script>
         document.querySelector('#room-name-input').focus();
