@@ -7,7 +7,8 @@ SECRET_KEY = 'django-insecure-9cg&54ya2esg#412ab20(ta6dkm@-$iq)@v4w^@(c!s8a1920)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1'
+    '127.0.0.1',
+    '10.10.10.49'
 ]
 
 INSTALLED_APPS = [
@@ -89,7 +90,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ASGI_APPLICATION = 'async_chat.asgi.application'
 
 CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer'
-    }
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("redis-dev.hcosta.com.br", 6379)],
+        },
+    },
 }
