@@ -1,4 +1,7 @@
 from pathlib import Path
+import json
+import os
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,11 +92,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ASGI_APPLICATION = 'async_chat.asgi.application'
 
+db_config_file = open(os.path.join(BASE_DIR, 'db_config.json'), 'r')
+DB_CONFIG = json.load(db_config_file)
+db_config_file.close()
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("redis-dev.hcosta.com.br", 6379)],
+            "hosts": [(DB_CONFIG['redis']['host'], DB_CONFIG['redis']['port'])],
         },
     },
 }
